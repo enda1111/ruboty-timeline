@@ -28,6 +28,8 @@ module Ruboty
         end
 
         def room
+          channel = channels.find { |channel| channel['id'] == message.from }
+          return '' if channel.nil?
           channels.find { |channel| channel['id'] == message.from }['name']
         end
 
